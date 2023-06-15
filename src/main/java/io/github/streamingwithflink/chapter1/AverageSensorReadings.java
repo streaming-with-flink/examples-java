@@ -38,6 +38,8 @@ public class AverageSensorReadings {
 
         // set up the streaming execution environment
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+        StreamExecutionEnvironment env1 = StreamExecutionEnvironment.createLocalEnvironment();// local environment
+        StreamExecutionEnvironment env2 = StreamExecutionEnvironment.createRemoteEnvironment("localhost", 8081, "target/streaming-flink-1.0-SNAPSHOT.jar");//remote environment
 
         // use event time for the application
         env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);
